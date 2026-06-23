@@ -1,0 +1,249 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    min-height:100vh;
+    overflow-x:hidden;
+    text-align:center;
+    color:white;
+}
+
+/* LOCK SCREEN */
+
+#lockScreen{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+#giftBox{
+    position:relative;
+    width:180px;
+    height:180px;
+    margin:30px auto;
+    cursor:pointer;
+}
+
+.box{
+    position:absolute;
+    bottom:0;
+    width:180px;
+    height:120px;
+    background:#ff4b6e;
+    border-radius:10px;
+}
+
+.box::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:25px;
+    height:120px;
+    background:white;
+}
+
+.lid{
+    position:absolute;
+    top:40px;
+    width:180px;
+    height:40px;
+    background:#ff6b88;
+    border-radius:10px;
+    transform-origin:left center;
+    transition:1s;
+}
+
+.lid::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:25px;
+    height:40px;
+    background:white;
+}
+
+.open .lid{
+    transform:rotate(-45deg) translateY(-30px);
+}
+
+#giftMessage{
+    font-size:22px;
+}
+
+#countdown{
+    font-size:2rem;
+    margin-top:20px;
+    font-weight:bold;
+}
+
+.wait-text{
+    margin-top:20px;
+}
+
+#mainContent{
+    display:none;
+}
+
+/* MAIN SITE */
+
+.container{
+    padding:50px 20px;
+}
+
+h1{
+    font-size:3rem;
+}
+
+.subtitle{
+    margin:20px 0;
+}
+
+.btn{
+    border:none;
+    border-radius:30px;
+    padding:15px 30px;
+    margin:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+
+.love-btn{
+    background:white;
+    color:#ff4b6e;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+    margin-top:30px;
+    padding:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid white;
+}
+
+.card-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:30px;
+}
+
+.card{
+    width:250px;
+    background:white;
+    color:#333;
+    padding:20px;
+    border-radius:20px;
+}
+
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    color:#333;
+    width:90%;
+    max-width:500px;
+    padding:30px;
+    border-radius:20px;
+    display:none;
+    z-index:1000;
+}
+
+.close{
+    background:#ff4b6e;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin-top:20px;
+    border-radius:20px;
+}
+
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    top:0;
+    left:0;
+    display:none;
+}
+
+.secret{
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    opacity:.2;
+}
+
+.secret:hover{
+    opacity:1;
+}
+
+.heart{
+    position:fixed;
+    animation:float 5s linear forwards;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-800px);
+        opacity:0;
+    }
+}.photo-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.memory-photo{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+.gif-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.5s;
+}
+
+.gif-overlay.show{
+    opacity:1;
+}
